@@ -1,14 +1,14 @@
 import GLOOP.*;
-public class Kugelfangen {
+public class spielzsene {
     private GLKamera kamera;
     private GLLicht licht;
     private GLHimmel himmel;
     private GLTastatur tastatur;
 
-    private Box dieBox;
-    private Kugel kugel1, kugel2, kugel3;
+    private spieler Box;
+    private Kugeln kugel1, kugel2, kugel3;
 
-    public Kugelfangen() {
+    public spielzsene() {
         kamera = new GLKamera();
         kamera.setzePosition(0, 500, 800);
 
@@ -17,11 +17,13 @@ public class Kugelfangen {
         tastatur = new GLTastatur();
 
         Spielfeld spielfeld = new Spielfeld(1000, 1000);
+        Kugeln kugel1 = new Kugeln(10,10,10,10);
 
         fuehreAus();
     }
 
     public void fuehreAus() {
+
 
     }
 }
