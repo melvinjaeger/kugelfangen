@@ -1,57 +1,50 @@
 import GLOOP.*;
 public class game {
-    private GLKamera kamera;
+    private GLEntwicklerkamera kamera;
     private GLLicht licht;
     private GLHimmel himmel;
     private GLTastatur tastatur;
-
     private Spieler spieler;
-    private Kugeln[] kugel;
+
+    Kugeln[] balls;
+
+
 
     public game() {
         kamera = new GLEntwicklerkamera();
-        kamera.setzePosition(0, 1500, 1500);
+        kamera.setzePosition(0, 1000, 1800);
 
         licht = new GLLicht();
-        himmel = new GLHimmel("src/img/kugeltextur.jpg/");
+        himmel = new GLHimmel("src/img/wald.jpg");
         tastatur = new GLTastatur();
 
-        Spielfeld spielfeld = new Spielfeld(2000, 2000);
+        spieler=new Spieler();
 
-
-        kugel = new Kugeln[100];
-
-        for (int i = 0; i < kugel.length; i++) {
-            kugel[i] = new Kugeln();
+        balls = new Kugeln[100];
+        for (int i = 0; i < balls.length; i++) {
+            balls[i]= new Kugeln();
         }
-        spieler = new Spieler();
+
+        Spielfeld spielfeld = new Spielfeld();
 
         fuehreAus();
     }
 
-
-        public void fuehreAus () {
-
-            while (!tastatur.esc()) ;{
-
-
-                spieler.bewege(1);
-
-
-                for (int i = 0; i < kugel.length; i++) {
-                    kugel[i].bewege(1);
-                }
-
-
-
-
+    public void fuehreAus() {
+        while (!tastatur.esc()) {
+            if (tastatur.rechts() && spieler.gibX() < 1200) {
+                spieler.bewegeRechts();
+            }
+            if (tastatur.links() && spieler.gibX() > -1200) {
+                spieler.bewegeLinks();
+            }
+            if (tastatur.oben() && spieler.gibZ() > -1200) {
+                spieler.bewegevorne();
+            }
+            if (tastatur.unten() && spieler.gibZ() < 1200) {
+                spieler.bewegehinten();
             }
             Sys.warte();
         }
-
-
-
-
-
+    }
 }
-

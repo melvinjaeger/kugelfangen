@@ -1,34 +1,28 @@
 import GLOOP.*;
-public class Spieler {
-    private GLZylinder spieler;
-    private Spielfeld feld;
-    private GLTastatur tastatur;
+public class Spieler{
+    GLZylinder spieler;
+    Spielfeld spielfeld;
+    double vX,vZ;
+    double breite, tiefe;
 
     public Spieler() {
-      spieler = new GLZylinder (0,20,0,100,40,"src/img/kugeltextur.jpg/");
-      spieler.drehe(90,0,0);
-
-
-
-
-
-
-
-
+        spieler = new GLZylinder(0,20,0,80,50);
+        spieler.setzeTextur("src/img/maus.jpg");
+        spieler.drehe(90,0,0);
+    }
+    public void bewegeLinks(){
+        spieler.verschiebe(-1.5,0,0);
+    }
+    public void bewegeRechts(){
+        spieler.verschiebe(1.5,0,0);
+    }
+    public void bewegevorne(){
+        spieler.verschiebe(0,0,-1.5);
+    }
+    public void bewegehinten(){
+        spieler.verschiebe(0,0,1.5);
     }
 
-
-    public void bewege(double speed) {
-
-        if (tastatur.links() && spieler.gibX() > 750) {
-            spieler.verschiebe( 1* speed,0,0);}
-            if (tastatur.rechts() && spieler.gibX() > -750){
-                spieler.verschiebe( -1* speed,0,0);}
-                if (tastatur.oben() && spieler.gibZ() > 750){
-                    spieler.verschiebe( 0,0,1* speed);}
-                    if (tastatur.links() && spieler.gibZ() > -750){
-                        spieler.verschiebe( 0 ,0,-1* speed);}
-    }
 
     public double gibX()  {return spieler.gibX();}
 

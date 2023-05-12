@@ -1,13 +1,13 @@
 import GLOOP.*;
 public class Kugeln {
     private GLKugel kugel;
-    private Spieler Box;
+    private Spieler spieler;
     private Spielfeld feld;
     private double radius;
 
 
     public Kugeln() {
-        kugel = new GLKugel(-750 + Math.random() * 1500, 20, -750 + Math.random() * 1500, 10, "src/img/kugeltextur.jpg/");
+        kugel = new GLKugel(-1125 + Math.random() * 2250, 20, -1125 + Math.random() * 2250, 10, "src/img/käse.jpg/");
 
     }
 
