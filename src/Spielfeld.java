@@ -16,6 +16,7 @@ public class Spielfeld{
         wand1.verschiebe(0,0,1225);
         wand1.setzeTextur("src/img/dirt oben.jpg");
 
+
         //hinten
         wand2 = new GLQuader(0,0,0,2500,200,50);
         wand2.verschiebe(0,0,-1225);
@@ -34,6 +35,7 @@ public class Spielfeld{
         wand4.setzeTextur("src/img/dirt oben.jpg");
 
     }
+
 
 
 
