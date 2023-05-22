@@ -6,7 +6,6 @@ public class Kugeln {
     private double radius;
 
 
-
     public Kugeln() {
         kugel = new GLKugel(-1125 + Math.random() * 2250, 20, -1125 + Math.random() * 2250, 10, "src/img/käse.jpg/");
 
@@ -14,50 +13,28 @@ public class Kugeln {
 
 
     public void bewegen() {
-        kugel.verschiebe( Math.random() * 2-2, 0 , Math.random() * 2-2);
-
-
-
-
-
-        }
-
-
-
-
-
-
-
-    public double gibX() {
-        return kugel.gibX();
-    }
-
-    public double gibY() {
-        return kugel.gibY();
-    }
-
-    public double gibZ() {
-        return kugel.gibZ();
-    }
-
-    public void respawn() {
-        kugel.setzeSichtbarkeit(false);
-
-    }
-
-    public boolean hit() {
-
-        double abstand = Math.sqrt(
-                Math.pow(this.gibX() - spieler.gibX(), 2) +
-                        Math.pow(this.gibZ() -spieler.gibZ(), 2)
-            );
-            if (abstand < 20) {
-                return true;
-            }
-            else{
-                return false;
-            }
+        kugel.verschiebe(Math.random() * 4 - 2, 0, Math.random() * 4 - 2);
+        if(getroffen()){
+            kugel.setzePosition(-1000000,-1000000,0);
         }
 
         }
+
+
+
+
+    public boolean getroffen() {
+        double abstand = Math.sqrt(Math.pow(kugel.gibX() - spieler.gibX(), 2)
+                + Math.pow(kugel.gibZ() - spieler.gibZ(), 2));
+       if (abstand < 60) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+}
+
+
+
 

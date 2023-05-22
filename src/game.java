@@ -5,6 +5,7 @@ public class game {
     private GLHimmel himmel;
     private GLTastatur tastatur;
     private Spieler spieler;
+    private Spielfeld spielfeld;
 
     Kugeln[] balls;
 
