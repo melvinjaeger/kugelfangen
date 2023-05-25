@@ -7,9 +7,9 @@ public class game {
     private GLTafel tafel1;
     private Spieler spieler;
     private Spielfeld spielfeld;
-    private double lastPunkte;
+    private double Punkte;
 
-    private Gegner gegner;
+    Gegner[]gegner;
 
     Kugeln[]balls;
 
@@ -24,12 +24,15 @@ public class game {
         spieler=new Spieler();
         spielfeld = new Spielfeld(2000,2000);
 
-        balls = new Kugeln[100];
+        balls = new Kugeln[50];
         for (int i = 0; i < balls.length; i++) {
             balls[i]= new Kugeln(spieler,spielfeld);
         }
 
-        gegner = new Gegner(spieler,spielfeld);
+        gegner = new Gegner[3];
+        for (int i = 0; i < gegner.length; i++) {
+            gegner[i]= new Gegner(spieler,spielfeld);
+        }
 
 
         tafel1 = new GLTafel(0,0,0,2500,0,"src/img/gold.jpg");
@@ -57,9 +60,22 @@ public class game {
                 spieler.bewegehinten();
             }
 
+            for (int i = 0; i < gegner.length; i++) {
+                gegner[i].move();
 
-            gegner.move();
-            if (gegner.hit()){
+            }
+
+
+
+
+
+            if(Punkte == 21){
+                tafel1.setzeSichtbarkeit(false);
+                tafel1 = new GLTafel(0, 500,0,20000,20000,"src/img/gold.jpg");
+                tafel1.setzeText("Gewonnen",800);
+                tafel1.drehe(-88,0,0);
+                Sys.warte(5000);
+                Sys.beenden();
             }
 
 
@@ -72,9 +88,9 @@ public class game {
         }
     }
     public void updateTafel(){
-        if(spieler.GibPunkte()-lastPunkte >= 1){
+        if(spieler.GibPunkte()-Punkte >= 1){
             tafel1.setzeText("Kaese: "+spieler.GibPunkte(),500);
-            lastPunkte = spieler.GibPunkte();
+            Punkte = spieler.GibPunkte();
         }
     }
 }

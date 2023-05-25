@@ -18,8 +18,9 @@ public class Gegner {
 
         gegner = new GLKugel(0, 100, -1000, 100, "src/img/sterne.jpg/");
 
-        xgeschwindigkeit = Math.random() * 1 - 0.5;
-        zgeschwindigkeit = Math.random() * 1 - 0.5;
+
+        xgeschwindigkeit = Math.random() * 3 - 0.5;
+        zgeschwindigkeit = Math.random() * 3 - 0.5;
 
 
     }
