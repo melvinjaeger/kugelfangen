@@ -5,7 +5,11 @@ public class Spielfeld{
 
     private GLQuader wand1,wand2,wand3,wand4;
 
-    public Spielfeld(){
+    public Spielfeld(double pBreite, double pTiefe){
+
+        breite = pBreite;
+        tiefe = pTiefe;
+
 
         untergrund = new GLQuader(0,0,0, 2500,2000,2500);
         untergrund.setzeTextur("src/img/dirt.jpg");
@@ -34,12 +38,16 @@ public class Spielfeld{
         wand4.drehe(0,90,0);
         wand4.setzeTextur("src/img/dirt oben.jpg");
 
+
+
     }
 
-
-
-
-
+    public double gibBreite(){
+        return breite;
+    }
+    public double gibTiefe(){
+        return tiefe;
+    }
 
 
 

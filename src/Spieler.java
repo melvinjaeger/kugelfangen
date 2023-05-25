@@ -1,15 +1,29 @@
 import GLOOP.*;
 public class Spieler{
     GLZylinder spieler;
-    Spielfeld spielfeld;
-    double vX,vZ;
-    double breite, tiefe;
+   public double punkte;
+
+
+
 
     public Spieler() {
         spieler = new GLZylinder(0,20,0,80,50);
         spieler.setzeTextur("src/img/maus.jpg");
         spieler.drehe(90,0,0);
     }
+
+
+
+
+    public void punkte(){
+        punkte++;
+    }
+
+    public double GibPunkte() {
+        return punkte;
+    }
+
+
     public void bewegeLinks(){
         spieler.verschiebe(-1.5,0,0);
     }
@@ -22,6 +36,9 @@ public class Spieler{
     public void bewegehinten(){
         spieler.verschiebe(0,0,1.5);
     }
+
+
+
 
 
     public double gibX()  {return spieler.gibX();}
