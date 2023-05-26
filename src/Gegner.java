@@ -36,6 +36,9 @@ public class Gegner {
         gegner.drehe(0, Math.random() * 2 - 1, 0);
         gegner.verschiebe(xgeschwindigkeit, 0, zgeschwindigkeit);
 
+        if(hit()) {
+            Sys.beenden();
+        }
     }
 
 

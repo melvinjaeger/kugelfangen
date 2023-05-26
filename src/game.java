@@ -63,6 +63,7 @@ public class game {
             for (int i = 0; i < gegner.length; i++) {
                 gegner[i].move();
 
+
             }
 
 
@@ -90,7 +91,7 @@ public class game {
     public void updateTafel(){
         if(spieler.GibPunkte()-Punkte >= 1){
             tafel1.setzeText("Kaese: "+spieler.GibPunkte(),500);
-            Punkte = spieler.GibPunkte();
+
         }
     }
 }
